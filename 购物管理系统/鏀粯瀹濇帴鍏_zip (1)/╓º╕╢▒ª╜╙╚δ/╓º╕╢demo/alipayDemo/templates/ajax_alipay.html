@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    <script src="../static/js/common.js"></script>#}
+{#    <script src="../static/js/jquery-1.11.3.js"></script>#}
+{#    <script src="/static/js/common.js"></script>#}
+    <script src="/static/js/jquery-1.11.3.js"></script>
+<body>
+    <script>
+        $(function(){
+            $("#Btn_pay").click(function () {
+                $.ajax({
+                    url:"http://127.0.0.1:80000/payment/jump/",
+                    type:"post",
+                    dataType:"json",
+                    async:false,
+                    success:function (data) {
+                        window.location = data.pay_url
+                    },
+                    error:function(errors){
+                        console.log("错误")
+                        console.log(errors)
+                    }
+                })
+            })
+        })
+    </script>
+    <button id="Btn_pay">点击暴富</button>
+</body>
+</html>
